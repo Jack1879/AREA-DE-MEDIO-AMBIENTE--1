@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clasificación de Calidad del Aire</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        padding-top: 40px;
+    }
+
+    section {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        width: 320px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+
+    input {
+        padding: 8px;
+        width: 80%;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background: #0078ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #005fcc;
+    }
+
+    .output {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<section id="e1">
+<h3>Calidad del Aire (AQI)</h3>
+<input type="number" id="aqi" placeholder="AQI">
+<button onclick="ej1()">Clasificar</button>
+<div class="output" id="out1"></div>
+</section>
+<script>
+function ej1() {
+    let v = parseInt(document.getElementById("aqi").value);
+    let r = "";
+    if (v <= 50) r = "Bueno";
+    else if (v <= 100) r = "Moderado";
+    else if (v <= 150) r = "Dañino para sensibles";
+    else if (v <= 200) r = "Dañino";
+    else if (v <= 300) r = "Muy dañino";
+    else r = "Peligroso";
+    document.getElementById("out1").innerText = "Calidad del aire: " + r;
+}
+</script>
+</body>
+</html>
